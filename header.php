@@ -65,6 +65,53 @@ if ($detect->isMobile()) {
 
 <script type="text/javascript">
 
+var n = new Array();
+
+function fCreateClipsArray(s){
+    n=s.split(","); 
+	//alert(n[1]);
+}
+
+
+var clipNum=0;
+var clipTotes=0;
+
+function fLoadClip(clipID,num,t){
+  clipTotes = t;
+  if(clipNum==0){
+    clipNum=1;
+  } else{
+    clipNum = num;
+  }
+  
+  var txt=document.getElementById("videoclip")
+  txt.innerHTML="<center><iframe src='http://player.vimeo.com/video/"+clipID+"?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff' width='426' height='239' frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></center>";
+}
+
+function fLoadNextClip(){
+   if (clipNum < clipTotes){
+     clipNum++;
+   }else{
+      clipNum = 1;
+   }
+  var txt=document.getElementById("videoclip")
+  txt.innerHTML="<center><iframe src='http://player.vimeo.com/video/"+n[clipNum-1]+"?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff' width='426' height='239' frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></center>";
+}
+
+function fLoadPreviousClip(){
+   if (clipNum > 1){
+     clipNum--;
+   }else{
+      clipNum = clipTotes;
+   }
+  var txt=document.getElementById("videoclip")
+  txt.innerHTML="<center><iframe src='http://player.vimeo.com/video/"+n[clipNum-1]+"?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff' width='426' height='239' frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></center>";
+}
+
+
+
+
+
 function fHideDiv(s){
     document.getElementById(s).style.visibility='hidden';
 }
@@ -161,8 +208,8 @@ function fUpDateImgs(n,t){
 
 <?php if(is_page('Event')){ ?>
   <img style="width: 1024px;" alt="" src="<?php bloginfo('template_directory'); ?>/images/event-bg02.jpg">
-<?php } else { ?>
-  <img style="width: 1024px;" alt="" src="<?php bloginfo('template_directory'); ?>/images/bg0<?php echo rand(1, 2);?>.jpg">
+<?php } else if(is_page('MA_N') || is_page('PRESS') || is_page('Menswear at LCF') ){ ?>
+  <img style="width: 1024px;" alt="" src="<?php bloginfo('template_directory'); ?>/images/bg0<?php echo rand(1, 3);?>.jpg">
 <?php } ?>
 
 </td></tr></tbody></table>
@@ -195,7 +242,8 @@ function fUpDateImgs(n,t){
 		</div><!-- #masthead -->
         
 	</div><!-- #header -->
-    <ul id="inner_menu2">
+    
+      <ul id="inner_menu2">
     
     <?php if(is_page('Homepage')){ ?>
 		<li class="current_page_item"><a href="<?php bloginfo('url');?>">HOME / INFO</a></li>
@@ -233,6 +281,12 @@ function fUpDateImgs(n,t){
         <li><a href="<?php bloginfo('url');?>/event/">EVENT</a></li>
      <?php } ?>
      
+     <?php if(is_page('VIDEO')){ ?>
+       <li  class="current_page_item"><a href="<?php bloginfo('url');?>/video/">VIDEO</a></li>
+     <?php }else{ ?>
+       <li><a href="<?php bloginfo('url');?>/video/">VIDEO</a></li>
+     <?php } ?>
+     
      <?php if(is_page('MA_N')){ ?>
        <li  class="current_page_item"><a href="<?php bloginfo('url');?>/ma_n/">MA_N</a></li>
      <?php }else{ ?>
@@ -251,38 +305,39 @@ function fUpDateImgs(n,t){
         <li><a href="<?php bloginfo('url');?>/press/">PRESS</a></li>
       <?php } ?>
       
-      <li><span></span></li>
+      
       
     <?php if(is_page('Asger Juel Larsen')){ ?>
-    	<li><span></span></li>
+    	<li ><span style="border-width:0px; margin:3px"></span></li>
 		<li class="current_page_item"><a href="javascript:fShowDiv('content');">Information</a></li>
-        <li><span></span></li>
-        <li><span></span></li>
-        <li><span></span></li>
+        <li><span style="border-width:0px; margin:3px"></span></li>
+        <li><span style="border-width:0px; margin:3px"></span></li>
+        <li><span style="border-width:0px; margin:3px"></span></li>
     <?php } ?>   
     
     <?php if(is_page('Domingo Rodriguez')){ ?>
-    	<li><span></span></li>
-        <li><span></span></li>
+    	<li><span style="border-width:0px; margin:3px"></span></li>
+        <li><span style="border-width:0px; margin:3px"></span></li>
 		<li class="current_page_item"><a href="javascript:fShowDiv('content');">Information</a></li>
-        <li><span></span></li>
-        <li><span></span></li>
+        <li><span style="border-width:0px; margin:3px"></span></li>
+        <li><span style="border-width:0px; margin:3px"></span></li>
     <?php } ?> 
     
     <?php if(is_page('Matteo Molinari')){ ?>
-    	<li><span></span></li>
-        <li><span></span></li>
-        <li><span></span></li>
+    	<li><span style="border-width:0px; margin:3px"></span></li>
+        <li><span style="border-width:0px; margin:3px"></span></li>
+        <li><span style="border-width:0px; margin:3px"></span></li>
 		<li class="current_page_item"><a href="javascript:fShowDiv('content');">Information</a></li>
-        <li><span></span></li>
+        <li><span style="border-width:0px; margin:3px"></span></li>
     <?php } ?>
     
     <?php if(is_page('Oliver Ruuger')){ ?>
-    	<li><span></span></li>
-        <li><span></span></li>
-        <li><span></span></li>
-        <li><span></span></li>
+    	<li><span style="border-width:0px; margin:3px"></span></li>
+        <li><span style="border-width:0px; margin:3px"></span></li>
+        <li><span style="border-width:0px; margin:3px"></span></li>
+        <li><span style="border-width:0px; margin:3px"></span></li>
 		<li class="current_page_item"><a href="javascript:fShowDiv('content');">Information</a></li> 
     <?php } ?> 
    </ul>
+
 	<div id="main">

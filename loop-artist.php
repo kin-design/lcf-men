@@ -40,16 +40,16 @@
                     
                     <?php //if(){?>
    
-					<div ><center style="color:#000000;">
-                    <a style="color:#000000;" href="javascript:onclick=changeStackOrder('prev',<?php echo $totes;?>);"><</a> | 
+					<div ><center style="color:#FFFFFF;">
+                    <a style="color:#FFFFFF;" href="javascript:onclick=changeStackOrder('prev',<?php echo $totes;?>);"><</a> | 
                     <?php $i=1;
 						while($i<=$totes) {
- 							 echo '<a style="color:#000000;" href="javascript:onclick=changeStackOrder('.$i.','.$totes.');">'.$i.'</a> |';
+ 							 echo '<a style="color:#FFFFFF;" href="javascript:onclick=changeStackOrder('.$i.','.$totes.');">'.$i.'</a> |';
   							 $i++;
   						}
 					?>
                   
-                    <a style="color:#000000;" href="javascript:onclick=changeStackOrder('next',<?php echo $totes;?>);">></a>
+                    <a style="color:#FFFFFF;" href="javascript:onclick=changeStackOrder('next',<?php echo $totes;?>);">></a>
                     </center></div>
                     
 					<div class="entry-content" style="position:relative;">
@@ -66,12 +66,12 @@
 					
                     <div id="img<?php echo $c; ?>"  style="margin-left:<?php echo (-10)-($image_attributes[1])/2;?>px ; margin-right:auto; width:<?php echo $image_attributes[1];?>px; position:absolute; left:50%; z-index: <?php echo 1000-($c); ?>">
 						
-                    <img  style="border: 10px solid #FFFFFF; " src="<?php echo $image_attributes[0]; ?>" width="<?php echo $image_attributes[1]; ?>" height="<?php echo $image_attributes[2]; ?>"><br /><div style="margin-left:10px;"><center><?php echo $captions[$c-1]; ?></center></div>
+                    <img  style="border: 10px solid #FFFFFF; " src="<?php echo $image_attributes[0]; ?>" width="<?php echo $image_attributes[1]; ?>" height="<?php echo $image_attributes[2]; ?>"><br /><div style="margin-left:10px;color:#FFFFFF;"><center><?php echo $captions[$c-1]; ?></center></div>
                     </div>
 					<?php } ?>	
 					
                     
-                      <div id="content" style=" visibility:hidden; position:absolute; top:-30px; left:60px; z-index:5000; padding: 0px; width: 298px; height:320px;">
+                      <div id="content" style=" visibility:hidden; position:absolute; top:-25px; left:60px; z-index:5000; padding: 0px; width: 298px; height:420px;">
 					    <div class="entry-content" style="padding:12px;"><?php the_content(); ?> 
 				        <center><a href="javascript:fHideDiv('content');">close</a></center></div>
                       </div>

@@ -415,7 +415,7 @@ a:hover {
 -------------------------------------------------------------- */
 
 #header {
-	padding: 40px 0 0 0;
+	padding: 24px 0 0 0;
 }
 #site-title {
 	float: left;
@@ -457,9 +457,10 @@ a:hover {
 
 
 #inner_menu2{
-	margin: 25px auto 25px auto;
+	margin: 12px auto 25px auto;
 	width: 764px;
 	padding:0;
+	padding-left:5px;
 }
 #inner_menu2 li{
 	margin:0;
@@ -478,7 +479,7 @@ a:hover {
 	padding-left:8px;
 	
 	margin:2px;
-	border-color:#666666;
+	border-color:#FFFFFF;
 	border-width:1px;
 	border-style:solid;
 	color:#FFFFFF;
@@ -587,7 +588,7 @@ div.menu li {
 #main {
 	clear: both;
 	overflow: hidden;
-	padding: 25px 0 0 0;
+	padding: 8px 0 0 0;
 }
 #content {
 	margin-bottom: 36px;
