@@ -218,7 +218,7 @@ function fUpDateImgs(n,t){
 
 <?php if(is_page('Event')){ ?>
   <img style="width: 1024px;" alt="" src="<?php bloginfo('template_directory'); ?>/images/event-bg02.jpg">
-<?php } else if(is_page('PRESS') || is_page('Menswear at LCF') ){ ?>
+<?php } else if(is_page('Homepage') || is_page('PRESS') || is_page('Menswear at LCF') ){ ?>
   <img style="width: 1024px;" alt="" src="<?php bloginfo('template_directory'); ?>/images/bg0<?php echo rand(1, 3);?>.jpg">
 <?php } ?>
 
