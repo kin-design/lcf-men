@@ -22,13 +22,20 @@
 	   <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 					
        <center><br /><?php 
-	   $s =  get_post_meta($post->ID, 'videos', true); 
+	   //$s =  get_post_meta($post->ID, 'videos', true); 
+	   //$videos = explode("&&", $s);
+	   //$c= count($videos); 
 	   
-	   $videos = explode("&&", $s);
+	   $videos = array();
 	   
-	   $c= count($videos); 
+	   $mykey_values = get_post_custom_values('clipID');
+         foreach ( $mykey_values as $key => $value ) {
+           array_push($videos, $key);
+         }
+	   $c= count($videos);
 	   
 	   echo "<a href='javascript:fLoadPreviousClip();'><</a> ";
+	   
 	   $i=1;
 		while($i<=$c){
          echo  "<a href='javascript:fLoadClip(".$videos[$i-1].",".$i.",".$c.")'>".$i . "</a> ";
@@ -38,23 +45,30 @@
 	   echo " <a href='javascript:fLoadNextClip();'>></a>";
 	   
 	   ?>
-</center><br />
+</center>
+<br />
+<div id="videoclip" style="color:#FFFFFF;"><center>Loading...</center></div>
 
-<br />
-<br />
-<div id="videoclip"><center>Loading...</center></div>
+<?php
+  $mykey_values = get_post_custom_values('clipID');
+  foreach ( $mykey_values as $key => $value ) {
+    //echo "$value <br />"; 
+	echo '<script type="text/javascript"> fAddToClipsArray('.$value.'); </script>' ;
+  }
+
+
+  $mykey_values = get_post_custom_values('caption');
+  foreach ( $mykey_values as $key => $value ) {
+    //echo "$value <br />"; 
+	echo '<script type="text/javascript"> fAddToCaptionsArray("'.$value.'"); </script>' ;
+  }
+
+?>
 <?php 
 
 echo '<script type="text/javascript">fLoadClip('.$videos[0].',1,'.$c.');</script>' ; 
-echo '<script type="text/javascript"> fCreateClipsArray("4977676,963043"); </script>' ; 
 ?>
 
-					
-                    
-                      
-					
-				</div><!-- #post-## -->
-
-				
+</div><!-- #post-## -->
 
 <?php endwhile; // end of the loop. ?>

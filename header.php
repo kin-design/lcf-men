@@ -66,10 +66,13 @@ if ($detect->isMobile()) {
 <script type="text/javascript">
 
 var n = new Array();
+function fAddToClipsArray(id){
+    n.push(id);
+}
 
-function fCreateClipsArray(s){
-    n=s.split(","); 
-	//alert(n[1]);
+var c = new Array();
+function fAddToCaptionsArray(cap){
+    c.push(cap);
 }
 
 
@@ -85,7 +88,7 @@ function fLoadClip(clipID,num,t){
   }
   
   var txt=document.getElementById("videoclip")
-  txt.innerHTML="<center><iframe src='http://player.vimeo.com/video/"+clipID+"?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff' width='426' height='239' frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></center>";
+  txt.innerHTML="<center><iframe src='http://player.vimeo.com/video/"+n[clipNum-1]+"?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff' width='426' height='239' frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe><br><br>"+c[clipNum-1]+"</center>";
 }
 
 function fLoadNextClip(){
@@ -95,7 +98,7 @@ function fLoadNextClip(){
       clipNum = 1;
    }
   var txt=document.getElementById("videoclip")
-  txt.innerHTML="<center><iframe src='http://player.vimeo.com/video/"+n[clipNum-1]+"?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff' width='426' height='239' frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></center>";
+  txt.innerHTML="<center><iframe src='http://player.vimeo.com/video/"+n[clipNum-1]+"?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff' width='426' height='239' frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe><br><br>"+c[clipNum-1]+"</center>";
 }
 
 function fLoadPreviousClip(){
@@ -105,7 +108,7 @@ function fLoadPreviousClip(){
       clipNum = clipTotes;
    }
   var txt=document.getElementById("videoclip")
-  txt.innerHTML="<center><iframe src='http://player.vimeo.com/video/"+n[clipNum-1]+"?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff' width='426' height='239' frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></center>";
+  txt.innerHTML="<center><iframe src='http://player.vimeo.com/video/"+n[clipNum-1]+"?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff' width='426' height='239' frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe><br><br>"+c[clipNum-1]+"</center>";
 }
 
 
