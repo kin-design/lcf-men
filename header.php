@@ -88,7 +88,7 @@ function fLoadClip(clipID,num,t){
   }
   
   var txt=document.getElementById("videoclip")
-  txt.innerHTML="<center><iframe src='http://player.vimeo.com/video/"+n[clipNum-1]+"?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff' width='426' height='239' frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe><br><br>"+c[clipNum-1]+"</center>";
+  txt.innerHTML="<center><div style='border: solid 10px #FFFFFF; width:426px; height:239px'><iframe src='http://player.vimeo.com/video/"+n[clipNum-1]+"?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff' width='426' height='239' frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div><br><br>"+c[clipNum-1]+"</center>";
 }
 
 function fLoadNextClip(){
@@ -98,7 +98,7 @@ function fLoadNextClip(){
       clipNum = 1;
    }
   var txt=document.getElementById("videoclip")
-  txt.innerHTML="<center><iframe src='http://player.vimeo.com/video/"+n[clipNum-1]+"?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff' width='426' height='239' frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe><br><br>"+c[clipNum-1]+"</center>";
+  txt.innerHTML="<center><div style='border: solid 10px #FFFFFF; width:426px; height:239px'><iframe src='http://player.vimeo.com/video/"+n[clipNum-1]+"?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff' width='426' height='239' frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div><br><br>"+c[clipNum-1]+"</center>";
 }
 
 function fLoadPreviousClip(){
@@ -108,7 +108,7 @@ function fLoadPreviousClip(){
       clipNum = clipTotes;
    }
   var txt=document.getElementById("videoclip")
-  txt.innerHTML="<center><iframe src='http://player.vimeo.com/video/"+n[clipNum-1]+"?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff' width='426' height='239' frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe><br><br>"+c[clipNum-1]+"</center>";
+  txt.innerHTML="<center><div style='border: solid 10px #FFFFFF; width:426px; height:239px'><iframe src='http://player.vimeo.com/video/"+n[clipNum-1]+"?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff' width='426' height='239' frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div><br><br>"+c[clipNum-1]+"</center>";
 }
 
 
@@ -120,8 +120,15 @@ function fHideDiv(s){
 }
 
 function fShowDiv(s){
-    document.getElementById(s).style.visibility='visible';
+    var vis = document.getElementById(s).style.visibility;
+	if(vis=='hidden'){
+      document.getElementById(s).style.visibility='visible';
+	}else{
+	  document.getElementById(s).style.visibility='hidden';
+	}
 }
+
+
 
   var imgNum = 1;
   var totes = 0;
@@ -211,7 +218,7 @@ function fUpDateImgs(n,t){
 
 <?php if(is_page('Event')){ ?>
   <img style="width: 1024px;" alt="" src="<?php bloginfo('template_directory'); ?>/images/event-bg02.jpg">
-<?php } else if(is_page('MA_N') || is_page('PRESS') || is_page('Menswear at LCF') ){ ?>
+<?php } else if(is_page('PRESS') || is_page('Menswear at LCF') ){ ?>
   <img style="width: 1024px;" alt="" src="<?php bloginfo('template_directory'); ?>/images/bg0<?php echo rand(1, 3);?>.jpg">
 <?php } ?>
 
@@ -297,9 +304,9 @@ function fUpDateImgs(n,t){
      <?php } ?>
      
      <?php if(is_page('Menswear at LCF')){ ?>  
-	    <li  class="current_page_item"><a href="<?php bloginfo('url');?>/menswear-at-lcf/">Menswear at LCF</a></li>
+	    <li  class="current_page_item"><a href="<?php bloginfo('url');?>/menswear-at-lcf/">MENSWEAR AT LCF</a></li>
      <?php }else{ ?> 
-        <li><a href="<?php bloginfo('url');?>/menswear-at-lcf/">Menswear at LCF</a></li>
+        <li><a href="<?php bloginfo('url');?>/menswear-at-lcf/">MENSWEAR AT LCF</a></li>
       <?php } ?>
       
       <?php if(is_page('PRESS')){ ?>

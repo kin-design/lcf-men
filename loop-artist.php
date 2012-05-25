@@ -41,10 +41,10 @@
                     <?php //if(){?>
    
 					<div ><center style="color:#FFFFFF;">
-                    <a style="color:#FFFFFF;" href="javascript:onclick=changeStackOrder('prev',<?php echo $totes;?>);"><</a> | 
+                    <a style="color:#FFFFFF;" href="javascript:onclick=changeStackOrder('prev',<?php echo $totes;?>);"><</a>  
                     <?php $i=1;
 						while($i<=$totes) {
- 							 echo '<a style="color:#FFFFFF;" href="javascript:onclick=changeStackOrder('.$i.','.$totes.');">'.$i.'</a> |';
+ 							 echo '<a style="color:#FFFFFF;" href="javascript:onclick=changeStackOrder('.$i.','.$totes.');">'.$i.'</a> ';
   							 $i++;
   						}
 					?>
@@ -70,8 +70,24 @@
                     </div>
 					<?php } ?>	
 					
-                    
-                      <div id="content" style=" visibility:hidden; position:absolute; top:-25px; left:60px; z-index:5000; padding: 0px; width: 298px; height:420px;">
+                    <?php
+					  if(is_page('Asger Juel Larsen')){
+					    $left=60;
+					  }
+					  
+					  if(is_page('Domingo Rodriguez')){
+					    $left=230;
+					  }
+					  
+					  if(is_page('Matteo Molinari')){
+					    $left=380;
+					  }
+					  
+					  if(is_page('Oliver Ruuger')){
+					    $left=530;
+					  }
+					?>
+                      <div id="content" style=" visibility:hidden; position:absolute; top:-25px; left:<?php echo $left; ?>px; z-index:5000; padding: 0px; width: 298px; height:420px;">
 					    <div class="entry-content" style="padding:12px;"><?php the_content(); ?> 
 				        <center><a href="javascript:fHideDiv('content');">close</a></center></div>
                       </div>
