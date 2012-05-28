@@ -440,9 +440,11 @@ a:hover {
 /* This is the custom header image */
 #branding img {
 	clear: both;
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
+}
+
+#branding a{
+	clear: both;
+	background-color:#FFFFFF;
 }
 
 

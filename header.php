@@ -223,8 +223,12 @@ function fUpDateImgs(n,t){
 	  }
      }
 	  
-	 document.getElementById('img'+n).style.zIndex="3000";
-	 document.getElementById('img'+n).style.visibility='visible';
+	 myObject = document.getElementById('img'+n);
+	
+	 if (myObject != null || myObject != undefined) {
+	   myObject.style.zIndex="3000";
+       myObject.style.visibility='visible';
+	 }
 	 imgNum = n;
 	  
 	  
@@ -291,7 +295,7 @@ function fUpDateImgs(n,t){
 						// Houston, we have a new header image!
 						echo get_the_post_thumbnail( $post->ID );
 					elseif ( get_header_image() ) : ?>
-						<a href="http://www.lcfm.co.uk"><img src="<?php header_image(); ?>" width="<?php echo HEADER_IMAGE_WIDTH; ?>" height="<?php echo HEADER_IMAGE_HEIGHT; ?>" alt="" border="0" /></a>
+						<center><a href="http://www.lcfm.co.uk"><img src="<?php header_image(); ?>" width="<?php echo HEADER_IMAGE_WIDTH; ?>" height="<?php echo HEADER_IMAGE_HEIGHT; ?>" alt="" border="0" /></a></center>
 					<?php endif; ?>
                     
                     
