@@ -65,6 +65,25 @@ if ($detect->isMobile()) {
 
 <script type="text/javascript">
 
+function fBuildNav(active,totes){
+	var i=1;
+	var txt="<a style='text-decoration:none' href='javascript:fLoadPreviousClip();'><</a> ";
+	
+     for (i=1;i<=totes;i++){
+	   if(i == active){
+	     txt=txt+"<a style='text-decoration:underline' href='javascript:fLoadClip("+n[i-1]+","+i+","+totes+")'>"+i+"</a> ";
+	   }else{
+	     txt=txt+"<a style='text-decoration:none' href='javascript:fLoadClip("+n[i-1]+","+i+","+totes+")'>"+i+"</a> ";
+	   }
+	 }
+	 
+	var txt=txt+" <a style='text-decoration:none' href='javascript:fLoadNextClip();'>></a>";
+	
+	var div=document.getElementById("nav");
+    div.innerHTML=txt;
+}
+
+
 var n = new Array();
 function fAddToClipsArray(id){
     n.push(id);
@@ -89,6 +108,8 @@ function fLoadClip(clipID,num,t){
   
   var txt=document.getElementById("videoclip")
   txt.innerHTML="<center><div style='border: solid 10px #FFFFFF; width:426px; height:239px'><iframe src='http://player.vimeo.com/video/"+n[clipNum-1]+"?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff' width='426' height='239' frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div><br><br>"+c[clipNum-1]+"</center>";
+  
+  fBuildNav(clipNum,clipTotes);
 }
 
 function fLoadNextClip(){
@@ -99,6 +120,8 @@ function fLoadNextClip(){
    }
   var txt=document.getElementById("videoclip")
   txt.innerHTML="<center><div style='border: solid 10px #FFFFFF; width:426px; height:239px'><iframe src='http://player.vimeo.com/video/"+n[clipNum-1]+"?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff' width='426' height='239' frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div><br><br>"+c[clipNum-1]+"</center>";
+  
+  fBuildNav(clipNum,clipTotes);
 }
 
 function fLoadPreviousClip(){
@@ -109,10 +132,32 @@ function fLoadPreviousClip(){
    }
   var txt=document.getElementById("videoclip")
   txt.innerHTML="<center><div style='border: solid 10px #FFFFFF; width:426px; height:239px'><iframe src='http://player.vimeo.com/video/"+n[clipNum-1]+"?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff' width='426' height='239' frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div><br><br>"+c[clipNum-1]+"</center>";
+  
+  fBuildNav(clipNum,clipTotes);
 }
 
 
-
+function fBuildImgNav(active,totes){
+	var i=1;
+	
+	
+	var txt="<center style='color:#FFFFFF;'><a style='color:#FFFFFF;text-decoration:none' href='javascript:onclick=changeStackOrder(-1,totes);'><</a>  ";
+	
+     for (i=1;i<=totes;i++){
+	   if(i == active){
+	     txt=txt+"<a style='color:#FFFFFF;text-decoration:underline' href='javascript:onclick=changeStackOrder("+i+",totes);'>"+i+"</a>  ";
+	   }else{
+	     txt=txt+"<a style='color:#FFFFFF;text-decoration:none' href='javascript:onclick=changeStackOrder("+i+",totes);'>"+i+"</a>  ";
+	   }
+	 }
+	 
+	var txt=txt+" <a style='color:#FFFFFF;text-decoration:none' href='javascript:onclick=changeStackOrder(500,totes);'>></a></center>";
+	
+	var div=document.getElementById("imgnav");
+    div.innerHTML=txt;
+	
+	
+}
 
 
 function fHideDiv(s){
@@ -137,8 +182,8 @@ function changeStackOrder(n,t){
 
    totes = t;
    //alert(n +' '+ t +' '+ totes);
-   if(n=='next' || n=='prev'){
-     if(n=='next'){
+   if(n==500 || n== -1){
+     if(n==500){
 	   //alert (imgNum + ' ' + totes);
 	   if(imgNum < totes){
 	     imgNum++;
@@ -163,6 +208,8 @@ function changeStackOrder(n,t){
     
 	
   }
+  
+  fBuildImgNav(imgNum,totes);
 }
 
 function fUpDateImgs(n,t){

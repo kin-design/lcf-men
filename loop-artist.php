@@ -24,7 +24,7 @@
                     <?php 
 					$images = get_children("post_parent=" . $post -> ID . "&post_type=attachment&post_mime_type=image&orderby=menu_order ASC, ID ASC");
 					$c=0;
-					//foreach( $attachments as $imageID => $imagePost ){ 
+					
 					$captions = array();
 
 					foreach( $images as $image ) {
@@ -33,24 +33,13 @@
 					  $captions[] = $img_desc; 
 					  $c++;
 					}
-					//print_r($captions);
 					
 					$totes = $c;
 					?>
-                    
-                    <?php //if(){?>
    
-					<div ><center style="color:#FFFFFF;">
-                    <a style="color:#FFFFFF;" href="javascript:onclick=changeStackOrder('prev',<?php echo $totes;?>);"><</a>  
-                    <?php $i=1;
-						while($i<=$totes) {
- 							 echo '<a style="color:#FFFFFF;" href="javascript:onclick=changeStackOrder('.$i.','.$totes.');">'.$i.'</a> ';
-  							 $i++;
-  						}
-					?>
-                  
-                    <a style="color:#FFFFFF;" href="javascript:onclick=changeStackOrder('next',<?php echo $totes;?>);">></a>
-                    </center></div>
+					<div id="imgnav" ></div>
+                    
+                    <?php echo '<script type="text/javascript">fBuildImgNav(1,'.$totes.'); changeStackOrder(1,'.$totes.');</script>' ; ?>
                     
 					<div class="entry-content" style="position:relative;">
 						
