@@ -342,10 +342,12 @@ function fUpDateImgs(n,t){
         <li><a href="<?php bloginfo('url');?>/event/">EVENT</a></li>
      <?php } ?>
      
+     
+     
      <?php if(is_page('VIDEO')){ ?>
-       <li  class="current_page_item"><a href="<?php bloginfo('url');?>/video/">VIDEO</a></li>
+       <li  class="current_page_item"><span>VIDEO</span></li>
      <?php }else{ ?>
-       <li><a href="<?php bloginfo('url');?>/video/">VIDEO</a></li>
+       <li><span>VIDEO</span></li>
      <?php } ?>
      
      <?php if(is_page('MA_N')){ ?>
