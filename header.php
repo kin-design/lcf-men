@@ -345,9 +345,9 @@ function fUpDateImgs(n,t){
      
      
      <?php if(is_page('VIDEO')){ ?>
-       <li  class="current_page_item"><span>VIDEO</span></li>
+       <li  class="current_page_item"><a href="<?php bloginfo('url');?>/video/">VIDEO</a></li>
      <?php }else{ ?>
-       <li><span>VIDEO</span></li>
+       <li><a href="<?php bloginfo('url');?>/video/">VIDEO</a></li>
      <?php } ?>
      
      <?php if(is_page('MA_N')){ ?>
