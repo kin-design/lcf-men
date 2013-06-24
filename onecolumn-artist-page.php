@@ -15,7 +15,7 @@
 get_header(); ?>
 
 		<div id="container" class="one-column">
-			<div id="content-artist-page" role="main">
+			<div id="content-artist-page" role="main" style="margin-top:18px;">
 
 			<?php
 			/* Run the loop to output the page.

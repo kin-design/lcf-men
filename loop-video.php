@@ -41,11 +41,17 @@
 
 <?php
   $mykey_values = get_post_custom_values('clipID');
+  
+  $mykey_values = array_reverse($mykey_values);
+  
   foreach ( $mykey_values as $key => $value ) { 
 	echo '<script type="text/javascript"> fAddToClipsArray('.$value.'); </script>' ;
   }
 
   $mykey_values = get_post_custom_values('caption');
+  
+  $mykey_values = array_reverse($mykey_values);
+  
   foreach ( $mykey_values as $key => $value ) {
     //echo "$value <br />"; 
 	echo '<script type="text/javascript"> fAddToCaptionsArray("'.$value.'"); </script>' ;

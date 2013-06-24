@@ -107,7 +107,7 @@ function fLoadClip(clipID,num,t){
   }
   
   var txt=document.getElementById("videoclip")
-  txt.innerHTML="<center><div style='border: solid 10px #FFFFFF; width:580px; height:326px'><iframe src='http://player.vimeo.com/video/"+n[clipNum-1]+"?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff' width='580' height='326' frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div><br>"+c[clipNum-1]+"</center>";
+  txt.innerHTML="<center><div style='border: solid 10px #000000; width:580px; height:326px'><iframe src='http://player.vimeo.com/video/"+n[clipNum-1]+"?title=0&amp;byline=0&amp;portrait=0&amp;color=000000' width='580' height='326' frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div><br>"+c[clipNum-1]+"</center>";
   
   fBuildNav(clipNum,clipTotes);
 }
@@ -119,7 +119,7 @@ function fLoadNextClip(){
       clipNum = 1;
    }
   var txt=document.getElementById("videoclip")
-  txt.innerHTML="<center><div style='border: solid 10px #FFFFFF; width:580px; height:326px'><iframe src='http://player.vimeo.com/video/"+n[clipNum-1]+"?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff' width='580' height='326' frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div><br>"+c[clipNum-1]+"</center>";
+  txt.innerHTML="<center><div style='border: solid 10px #000000; width:580px; height:326px'><iframe src='http://player.vimeo.com/video/"+n[clipNum-1]+"?title=0&amp;byline=0&amp;portrait=0&amp;color=000000' width='580' height='326' frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div><br>"+c[clipNum-1]+"</center>";
   
   fBuildNav(clipNum,clipTotes);
 }
@@ -131,7 +131,7 @@ function fLoadPreviousClip(){
       clipNum = clipTotes;
    }
   var txt=document.getElementById("videoclip")
-  txt.innerHTML="<center><div style='border: solid 10px #FFFFFF; width:580px; height:326px'><iframe src='http://player.vimeo.com/video/"+n[clipNum-1]+"?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff' width='580' height='326' frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div><br>"+c[clipNum-1]+"</center>";
+  txt.innerHTML="<center><div style='border: solid 10px #000000; width:580px; height:326px'><iframe src='http://player.vimeo.com/video/"+n[clipNum-1]+"?title=0&amp;byline=0&amp;portrait=0&amp;color=000000' width='580' height='326' frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div><br>"+c[clipNum-1]+"</center>";
   
   fBuildNav(clipNum,clipTotes);
 }
@@ -141,17 +141,17 @@ function fBuildImgNav(active,totes){
 	var i=1;
 	
 	
-	var txt="<center style='color:#FFFFFF;'><a style='color:#FFFFFF;text-decoration:none' href='javascript:onclick=changeStackOrder(-1,totes);'><</a>  ";
+	var txt="<center style='color:#000000;'><a style='color:#000000;text-decoration:none;' href='javascript:onclick=changeStackOrder(-1,totes);'><</a> &nbsp;&nbsp;";
 	
      for (i=1;i<=totes;i++){
 	   if(i == active){
-	     txt=txt+"<a style='color:#FFFFFF;text-decoration:underline' href='javascript:onclick=changeStackOrder("+i+",totes);'>"+i+"</a>  ";
+	     txt=txt+"<a style='color:#000000;text-decoration:underline;' href='javascript:onclick=changeStackOrder("+i+",totes);'>"+i+"</a>&nbsp;&nbsp;&nbsp;&nbsp;";
 	   }else{
-	     txt=txt+"<a style='color:#FFFFFF;text-decoration:none' href='javascript:onclick=changeStackOrder("+i+",totes);'>"+i+"</a>  ";
+	     txt=txt+"<a style='color:#000000;text-decoration:none;' href='javascript:onclick=changeStackOrder("+i+",totes);'>"+i+"</a>&nbsp;&nbsp;&nbsp;&nbsp;";
 	   }
 	 }
 	 
-	var txt=txt+" <a style='color:#FFFFFF;text-decoration:none' href='javascript:onclick=changeStackOrder(500,totes);'>></a></center>";
+	var txt=txt+" <a style='color:#000000;text-decoration:none;' href='javascript:onclick=changeStackOrder(500,totes);'>></a></center>";
 	
 	var div=document.getElementById("imgnav");
     div.innerHTML=txt;
@@ -237,6 +237,20 @@ function fUpDateImgs(n,t){
 </script>
 
 
+<script type="text/javascript">
+WebFontConfig = { fontdeck: { id: '34157' } };
+
+(function() {
+  var wf = document.createElement('script');
+  wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+  '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+  wf.type = 'text/javascript';
+  wf.async = 'true';
+  var s = document.getElementsByTagName('script')[0];
+  s.parentNode.insertBefore(wf, s);
+})();
+</script>
+
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 <?php
 	/* We add some JavaScript to pages with the comment form
@@ -267,9 +281,9 @@ function fUpDateImgs(n,t){
   <div>
 <table cellpadding="0" cellspacing="0"><tbody><tr><td>
 
-<?php if(is_page('Event')){ ?>
-  <img style="width: 1024px;" alt="" src="<?php bloginfo('template_directory'); ?>/images/event-bg02.jpg">
-<?php } else if(is_page('Homepage') || is_page('PRESS') || is_page('Menswear at LCF') ){ ?>
+<?php if(is_page('Homepage') || is_home() || is_front_page()){ ?>
+  <img style="width: 1024px;" alt="" src="<?php bloginfo('template_directory'); ?>/images/LCFM_full.jpg">
+<?php } else if(is_page('Homepage-') || is_page('PRESS-') || is_page('Menswear at LCF-') ){ ?>
   <img style="width: 1024px;" alt="" src="<?php bloginfo('template_directory'); ?>/images/bg0<?php echo rand(1, 3);?>.jpg">
 <?php } ?>
 
@@ -312,48 +326,46 @@ function fUpDateImgs(n,t){
         <li><a href="<?php bloginfo('url');?>">HOME / INFO</a></li>
     <?php } ?>
     
-    <?php if(is_page('Asger Juel Larsen')){ ?>
-		<li  class="current_page_item"><a href="<?php bloginfo('url');?>/asger-juel-larsen/">Asger Juel Larsen</a></li>
-    <?php }else{ ?>    
-        <li><a href="<?php bloginfo('url');?>/asger-juel-larsen/">Asger Juel Larsen</a></li>
+    <?php if(is_page('Baartmans & Siegel')){ ?>    
+        <li  class="current_page_item"><a href="<?php bloginfo('url');?>/baartmans-and-siegel/">Baartmans & Siegel</a></li>
+    <?php }else{ ?>     
+        <li><a href="<?php bloginfo('url');?>/baartmans-and-siegel/">Baartmans & Siegel</a></li>
     <?php } ?> 
     
-    <?php if(is_page('Domingo Rodriguez')){ ?>  
-		<li  class="current_page_item"><a href="<?php bloginfo('url');?>/domingo-rodriguez/">Domingo Rodriguez</a></li>
+    <?php if(is_page('Na Di')){ ?>   
+        <li  class="current_page_item"><a href="<?php bloginfo('url');?>/na-di/">Na Di</a></li>
+    <?php }else{ ?>
+        <li><a href="<?php bloginfo('url');?>/na-di/">Na Di</a></li>
+    <?php } ?>
+     
+    <?php if(is_page('Leonard Kahlcke')){ ?>  
+		<li  class="current_page_item"><a href="<?php bloginfo('url');?>/leonard-kahlcke/">Leonard Kahlcke</a></li>
     <?php }else{ ?>  
-        <li><a href="<?php bloginfo('url');?>/domingo-rodriguez/">Domingo Rodriguez</a></li>
+        <li><a href="<?php bloginfo('url');?>/leonard-kahlcke/">Leonard Kahlcke</a></li>
     <?php } ?>  
-        
-    <?php if(is_page('Matteo Molinari')){ ?>  
-        <li  class="current_page_item"><a href="<?php bloginfo('url');?>/matteo-molinari/">Matteo Molinari</a></li>
-    <?php }else{ ?>     
-        <li><a href="<?php bloginfo('url');?>/matteo-molinari/">Matteo Molinari</a></li>
+    
+    <?php if(is_page('Domingo Rodriguez')){ ?>
+       <li  class="current_page_item"><a href="<?php bloginfo('url');?>/domingo-rodriguez/">Domingo Rodriguez</a></li>
+    <?php }else{ ?>
+       <li><a href="<?php bloginfo('url');?>/domingo-rodriguez/">Domingo Rodriguez</a></li>
     <?php } ?>
     
-    <?php if(is_page('Oliver Ruuger')){ ?>    
-        <li  class="current_page_item"><a href="<?php bloginfo('url');?>/oliver-ruuger/">Oliver Ruuger</a></li>
-    <?php }else{ ?>     
+    <?php if(is_page('Oliver Ruuger')){ ?>
+		<li  class="current_page_item"><a href="<?php bloginfo('url');?>/oliver-ruuger/">Oliver Ruuger</a></li>
+    <?php }else{ ?>    
         <li><a href="<?php bloginfo('url');?>/oliver-ruuger/">Oliver Ruuger</a></li>
     <?php } ?> 
     
-     <?php if(is_page('Event')){ ?>   
-        <li  class="current_page_item"><a href="<?php bloginfo('url');?>/event/">EVENT</a></li>
+    <?php if(is_page('Sarah Williams')){ ?>  
+        <li  class="current_page_item"><a href="<?php bloginfo('url');?>/sarah-williams/">Sarah Williams</a></li>
+    <?php }else{ ?>     
+        <li><a href="<?php bloginfo('url');?>/sarah-williams/">Sarah Williams</a></li>
+    <?php } ?>
+     
+     <?php if(is_page('ABOUT')){ ?>
+       <li  class="current_page_item"><a href="<?php bloginfo('url');?>/about/">ABOUT</a></li>
      <?php }else{ ?>
-        <li><a href="<?php bloginfo('url');?>/event/">EVENT</a></li>
-     <?php } ?>
-     
-     
-     
-     <?php if(is_page('VIDEO')){ ?>
-       <li  class="current_page_item"><a href="<?php bloginfo('url');?>/video/">VIDEO</a></li>
-     <?php }else{ ?>
-       <li><a href="<?php bloginfo('url');?>/video/">VIDEO</a></li>
-     <?php } ?>
-     
-     <?php if(is_page('MA_N')){ ?>
-       <li  class="current_page_item"><a href="<?php bloginfo('url');?>/ma_n/">MA_N</a></li>
-     <?php }else{ ?>
-       <li><a href="<?php bloginfo('url');?>/ma_n/">MA_N</a></li>
+       <li><a href="<?php bloginfo('url');?>/about/">ABOUT</a></li>
      <?php } ?>
      
      <?php if(is_page('Menswear at LCF')){ ?>  
@@ -370,7 +382,7 @@ function fUpDateImgs(n,t){
       
       
       
-    <?php if(is_page('Asger Juel Larsen')){ ?>
+    <?php if(is_page('Oliver Ruuger0')){ ?>
     	<li ><span style="border-width:0px; margin:3px"></span></li>
 		<li class="current_page_item"><a href="javascript:fShowDiv('content');">Information</a></li>
         <li><span style="border-width:0px; margin:3px"></span></li>
@@ -378,7 +390,7 @@ function fUpDateImgs(n,t){
         <li><span style="border-width:0px; margin:3px"></span></li>
     <?php } ?>   
     
-    <?php if(is_page('Domingo Rodriguez')){ ?>
+    <?php if(is_page('Leonard Kahlcke0')){ ?>
     	<li><span style="border-width:0px; margin:3px"></span></li>
         <li><span style="border-width:0px; margin:3px"></span></li>
 		<li class="current_page_item"><a href="javascript:fShowDiv('content');">Information</a></li>
@@ -386,7 +398,7 @@ function fUpDateImgs(n,t){
         <li><span style="border-width:0px; margin:3px"></span></li>
     <?php } ?> 
     
-    <?php if(is_page('Matteo Molinari')){ ?>
+    <?php if(is_page('Sarah Williams0')){ ?>
     	<li><span style="border-width:0px; margin:3px"></span></li>
         <li><span style="border-width:0px; margin:3px"></span></li>
         <li><span style="border-width:0px; margin:3px"></span></li>
@@ -394,7 +406,23 @@ function fUpDateImgs(n,t){
         <li><span style="border-width:0px; margin:3px"></span></li>
     <?php } ?>
     
-    <?php if(is_page('Oliver Ruuger')){ ?>
+    <?php if(is_page('Baartmans & Siegel0')){ ?>
+    	<li><span style="border-width:0px; margin:3px"></span></li>
+        <li><span style="border-width:0px; margin:3px"></span></li>
+        <li><span style="border-width:0px; margin:3px"></span></li>
+        <li><span style="border-width:0px; margin:3px"></span></li>
+		<li class="current_page_item"><a href="javascript:fShowDiv('content');">Information</a></li> 
+    <?php } ?>
+    
+    <?php if(is_page('Na Di0')){ ?>
+    	<li><span style="border-width:0px; margin:3px"></span></li>
+        <li><span style="border-width:0px; margin:3px"></span></li>
+        <li><span style="border-width:0px; margin:3px"></span></li>
+        <li><span style="border-width:0px; margin:3px"></span></li>
+		<li class="current_page_item"><a href="javascript:fShowDiv('content');">Information</a></li> 
+    <?php } ?>
+    
+    <?php if(is_page('Domingo Rodriguez0')){ ?>
     	<li><span style="border-width:0px; margin:3px"></span></li>
         <li><span style="border-width:0px; margin:3px"></span></li>
         <li><span style="border-width:0px; margin:3px"></span></li>
